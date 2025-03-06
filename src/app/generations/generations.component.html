@@ -1,1 +1,10 @@
-<p>generations works!</p>
+
+<div class="generations-container">
+    <h2 class="generations-title">Générations Pokémon</h2>
+    <ul class="generations-list">
+        @for (generation of generations; track $index) {
+            <li> {{ generation }}</li>
+        }
+       
+    </ul>
+</div>

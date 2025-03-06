@@ -1,1 +1,15 @@
-<p>pokemons works!</p>
+
+<br>
+<br>
+<div class="pokemon-list">
+    @for (pokemon of pokemons; track $index) {
+    <div class="pokemon-card">
+      <div class="pokemon-name">{{ pokemon.name }}</div>
+      <div class="pokemon-description">Catégorie : {{ pokemon.categorie }}</div>
+      <div class="pokemon-description">Type : {{ pokemon.type }}</div>
+      <div class="pokemon-info">Taille : {{ formatNombre(pokemon.taille) }} m</div>
+      <div class="pokemon-info">Poids : {{ formatNombre(pokemon.poids) }} kg</div>
+    </div>
+    }
+  </div>
+  

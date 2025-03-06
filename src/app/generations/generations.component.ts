@@ -7,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrl: './generations.component.css'
 })
 export class GenerationsComponent {
+  generations: string[];
+
+  constructor() {
+      this.generations = [
+          "Génération I",
+          "Génération II",
+          "Génération III",
+          "Génération IV",
+          "Génération V",
+          "Génération VI",
+          "Génération VII"
+      ];
+  }
 
 }
