@@ -1,9 +1,9 @@
 .pokemon-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 20px;
     padding: 20px;
-    justify-items: center; /* Centrer les cartes */
+    justify-items: center; 
   }
   
   .pokemon-card {

@@ -1,12 +1,21 @@
 
 <br>
 <br>
+<h2>{{countPokemon}} pokémons en base de données : </h2>
 <div class="pokemon-list">
     @for (pokemon of pokemons; track $index) {
     <div class="pokemon-card">
       <div class="pokemon-name">{{ pokemon.name }}</div>
       <div class="pokemon-description">Catégorie : {{ pokemon.categorie }}</div>
-      <div class="pokemon-description">Type : {{ pokemon.type }}</div>
+      <div class="pokemon-description">Type : 
+        @for (type of pokemon.types; track $index; let last = $last) {
+          @if (!last) {
+            {{ type  + "."}}
+          }@else {
+            {{ type}}
+          }
+        }
+      </div>
       <div class="pokemon-info">Taille : {{ formatNombre(pokemon.taille) }} m</div>
       <div class="pokemon-info">Poids : {{ formatNombre(pokemon.poids) }} kg</div>
     </div>
