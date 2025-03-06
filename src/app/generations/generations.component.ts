@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { PokemonService } from '../Services/pokemon-service.service';
 
 @Component({
   selector: 'app-generations',
@@ -7,18 +8,29 @@ import { Component } from '@angular/core';
   styleUrl: './generations.component.css'
 })
 export class GenerationsComponent {
-  generations: string[];
+  public generations: any[];
+ 
 
-  constructor() {
-      this.generations = [
-          "Génération I",
-          "Génération II",
-          "Génération III",
-          "Génération IV",
-          "Génération V",
-          "Génération VI",
-          "Génération VII"
-      ];
+
+  constructor(@Inject(PokemonService) private pokemonService: PokemonService) { 
+    this.generations = [];
+    this.getGenerations();
+  }
+  
+
+  getGenerations(): void{
+    this.pokemonService.getGenerationApi().subscribe({
+      next: (data: any) => {
+        console.log("Données reçues :", data);
+        this.generations = data.results?.map((gen: any) => gen.name) || [];
+      },
+      error: (err) => {
+        console.error("Erreur API :", err);
+      },
+      complete: () => {
+        console.log("La requête a bien été effectuée !");
+      }
+    });
   }
 
 }
