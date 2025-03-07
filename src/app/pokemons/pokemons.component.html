@@ -2,10 +2,16 @@
 <br>
 <br>
 <h2>{{pokemons.length}} pokémons en base de données : </h2>
+<div>
+ 
+  <!-- <input type="text" [(ngModel)]= "content">
+  <p>{{content}}</p> -->
+</div>
 <div class="pokemon-list">
   
     @for (pokemon of pokemons; track $index) {
       <div class="pokemon-card">
+      <div class="img"><img src="{{pokemon.details.sprites.back_default}}" alt="" ></div>
       <div class="pokemon-name">{{ pokemon.name | titlecase}}</div>
       <div class="pokemon-description">Type : 
         @for (type of pokemon.details.types; track $index;) {

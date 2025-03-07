@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 export class PokemonsComponent {
   public pokemons: any [];
   public pokemonDetail: any [];
+  content: string = "";
 
     constructor(
       @Inject(PokemonService) private pokemonService : PokemonService,
@@ -37,7 +38,15 @@ export class PokemonsComponent {
           this.pokemons = data.results || [];
           this.pokemons.forEach((pokemon, index) => {
             this.getPokemonDetails(pokemon.url, index);
+          
           });
+          // setTimeout(() => {
+          //   for (let i = 0; i < this.pokemons.length; i++) {
+          //     this.pokemons.sort(this.pokemons.details.id)
+              
+          //   }
+            
+          // }, 1000);
         },
         error: (err) => {
         console.error("Erreur API :", err);
@@ -58,8 +67,9 @@ export class PokemonsComponent {
         // Met à jour les Pokémon avec leurs détails
         this.pokemons[index] = { ...this.pokemons[index], details };
       },
-      });
+    });
       
-    }
-  }
+ }
 
+
+}   
